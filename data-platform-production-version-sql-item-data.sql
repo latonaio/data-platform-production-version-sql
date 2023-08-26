@@ -17,8 +17,10 @@ CREATE TABLE `data_platform_production_version_item_data`
       `IsMarkedForDeletion`                  tinyint(1) DEFAULT NULL,
 
     PRIMARY KEY (`ProductionVersion`, `ProductionVersionItem`),
-	
-    CONSTRAINT `DataPlatformProductionVersionItemData_fk` FOREIGN KEY (`ProductionVersion`) REFERENCES `data_platform_production_version_header_data` (`ProductionVersion`)
+
+    CONSTRAINT `DataPlatformProductionVersionItemData_fk` FOREIGN KEY (`ProductionVersion`) REFERENCES `data_platform_production_version_header_data` (`ProductionVersion`),
+    CONSTRAINT `DataPlatformProductionVersionItemDataBillOfMaterial_fk` FOREIGN KEY (`BillOfMaterial`) REFERENCES `data_platform_bill_of_material_header_data` (`BillOfMaterial`),
+    CONSTRAINT `DataPlatformProductionVersionItemDataOperations_fk` FOREIGN KEY (`Operations`) REFERENCES `data_platform_operations_header_data` (`Operations`)
 
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;
